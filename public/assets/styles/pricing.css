@@ -1,0 +1,162 @@
+.pricing {
+  padding: 150px 0;
+}
+.pricing::before {
+  position: absolute;
+  content: "";
+  top: -40px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/price-plan-background-icons.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+.pricing small,
+.pricing .small {
+  color: #7a8496;
+  padding-bottom: 30px;
+  font-weight: 600;
+}
+.pricing h2,
+.pricing .h2 {
+  font-weight: 600;
+}
+.pricing .form-switch {
+  margin: 70px 0 20px;
+}
+.pricing .form-switch label {
+  font-weight: 600;
+}
+.pricing .form-switch .form-check-input {
+  margin: 0px 15px;
+  height: 22px;
+  width: 45px;
+}
+.pricing .pricing-head::after {
+  position: absolute;
+  content: "";
+  top: 50px;
+  right: 0px;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/dot-shape.png);
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-position: center;
+  margin: 0 auto;
+}
+.pricing .save::after {
+  position: absolute;
+  content: "";
+  top: -13px;
+  right: -30px;
+  width: 28px;
+  height: 25px;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/price-arrow.svg);
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-position: center;
+}
+.pricing .price-plan {
+  padding-top: 70px;
+}
+.pricing .price-plan .badge {
+  border-radius: 0px 0px 8px 8px;
+  left: 0;
+  right: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  top: -10px;
+  padding: 10px 12px;
+}
+.pricing .price-plan .badge::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/left-shape.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pricing .price-plan .badge::after {
+  position: absolute;
+  content: "";
+  top: -2px;
+  right: -9px;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/right-shape.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pricing .price-plan .card-body::before {
+  position: absolute;
+  content: "";
+  top: 20%;
+  right: 0;
+  width: 185px;
+  height: 185px;
+  background-size: contain;
+  background-image: url(../../assets/images/price-plans/price-overlay.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+.pricing .price-plan .card-body h2 sup,
+.pricing .price-plan .card-body .h2 sup {
+  color: #7a8496;
+  top: 22px;
+}
+.pricing .price-plan .card-body p {
+  color: #7a8496;
+  line-height: 32px;
+  padding: 0px 0 15px;
+}
+.pricing .price-plan .card-body ul li {
+  padding-bottom: 18px;
+  line-height: 30px;
+}
+.pricing .price-plan .card-body ul li i {
+  color: #37a05b;
+  position: relative;
+  top: 3px;
+}
+.pricing .price-plan .card-body ul li span {
+  width: 90%;
+  font-weight: 600;
+}
+
+.pricing .pricing-head::after {
+  top: 20px;
+  width: 100px;
+  height: 100px;
+}
+.pricing .price-plan .col-xxl-4 {
+  margin-bottom: 25px;
+}
+.pricing .price-plan .col-xxl-4:last-child {
+  margin-top: 0;
+}
+.pricing .price-plan .card-body::before {
+  top: 100px;
+}
+.pricing .price-plan .card-body ul li {
+  padding-bottom: 5px;
+}
+.pricing .price-plan h2 .fs-2,
+.pricing .price-plan .h2 .fs-2 {
+  font-size: 40px !important;
+}

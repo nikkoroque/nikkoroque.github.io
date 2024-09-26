@@ -1,0 +1,86 @@
+.contact {
+  padding: 120px 0 80px;
+}
+.contact::before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-image: url(../../assets/images/contact/contact-background-layer.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+.contact .dots-shape-left {
+  left: -75px;
+  height: 110px;
+  top: -80px;
+  width: 110px;
+}
+.contact .dots-shape-right {
+  right: -15px;
+  height: 110px;
+  width: 110px;
+  top: -35px;
+}
+.contact small,
+.contact .small {
+  color: #7a8496;
+  padding-bottom: 30px;
+  font-weight: 600;
+}
+.contact h2,
+.contact .h2 {
+  font-weight: 600;
+}
+.contact .agree {
+  color: #92acf2;
+  line-height: 30px;
+  padding-bottom: 25px;
+}
+.contact .testimonial .details {
+  padding: 90px 150px 30px 0;
+}
+.contact .testimonial .details::before {
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: 0px;
+  width: 82%;
+  height: 1px;
+  background-color: #fff;
+  z-index: 0;
+  opacity: 0.1;
+}
+.contact .testimonial .details::after {
+  position: absolute;
+  content: "";
+  top: 70px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-image: url(../../assets/images/contact/quotes.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+.contact .testimonial .details p {
+  line-height: 34px;
+}
+.contact .testimonial .details .avtar-img {
+  background-color: #fec572;
+  height: 55px;
+  width: 55px;
+}
+.contact .trusted-companies {
+  padding-top: 150px;
+}
+.contact .trusted-companies ul li {
+  margin: 40px 25px 0;
+  display: flex;
+  justify-content: center;
+}
