@@ -3,6 +3,9 @@
 <!--#                                 Header                                  -->
 <!--# ======================================================================= -->
 <header class="main-header position-fixed w-100">
+    <div aria-live="polite" aria-atomic="true">
+        <div class="toast-container position-absolute p-3" id="toast-container" style="z-index:9;"></div>
+    </div>
     <div class="container">
         <nav class="navbar navbar-expand-xl py-0">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -11,10 +14,10 @@
                 </a>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" id="about-link" href="#">About</a>
+                        <a class="nav-link text-capitalize" id="" href="/about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" id="services-link" href="#">Services</a>
+                        <a class="nav-link text-capitalize" id="" href="/services.html">Services</a>
                     </li>
 
                     <li class="nav-item">
@@ -28,7 +31,8 @@
                         <input type="text" class="form-control border-0 bg-transparent ps-2" placeholder="search"
                             aria-label="Example text with button addon" aria-describedby="button-addon1" />
                     </div>
-                    <a class="btn btn-warning btn-hover-secondery text-capitalize" href="#">register</a>
+                    <a class="btn btn-warning btn-hover-secondery text-capitalize"
+                        href="mailto:mail@example.com">contact</a>
                 </div>
             </div>
         </nav>

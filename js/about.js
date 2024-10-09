@@ -29,6 +29,7 @@ function injectSection(url, elementId, callback = () => {}) {
 // Function to inject shared sections (sections used on both pages)
 function injectSharedSections(callback = () => {}) {
   injectSection("./components/Navbar.html", "navbar-container", function () {
+    configurePageNavigation(); // Ensure that navbar is configured after it's injected
     callback(); // Continue loading other shared sections after navbar
   });
   injectSection("./components/Faq.html", "faq-section");
@@ -37,60 +38,27 @@ function injectSharedSections(callback = () => {}) {
   injectSection("./containers/shared/ContactSection.html", "contact-section");
 }
 
-// Home page sections
-function injectHomeSections() {
-  injectSection("./pages/home.html", "home-container");
-  injectSection("./containers/home/Hero.html", "hero");
-  injectSection("./containers/shared/StepSection.html", "home-step-section");
+// About page sections
+function injectAboutSections() {
+  injectSection("./pages/about.html", "about-container");
+  injectSection("./containers/about/Hero.html", "hero-about");
+  injectSection("./containers/shared/WhySection.html", "why-section");
+  injectSection("./containers/shared/FeatureSection.html", "feature-section");
   injectSection(
     "./containers/shared/ServiceSection.html",
-    "home-service-section"
-  );
-  injectSection(
-    "./containers/shared/OptimizeSection.html",
-    "home-optimize-section"
-  );
-  injectSection(
-    "./containers/shared/PricingSection.html",
-    "home-pricing-section"
+    "about-service-section"
   );
   injectSection(
     "./containers/shared/ContactSection.html",
-    "home-contact-section"
+    "about-contact-section"
   );
-  injectSection("./components/Faq.html", "home-faq-section");
+  injectSection("./components/Faq.html", "about-faq-section");
 }
 
 function initializePage() {
   injectSharedSections();
-  injectHomeSections();
+  injectAboutSections();
 }
 
 // Run the initialization on page load
 window.addEventListener("load", initializePage);
-
-var basePrices = [599, 799, 999];
-
-function updatePrices() {
-  var condition = document.getElementById("flexSwitchCheckChecked").checked;
-  var prices = document.getElementsByClassName("price");
-  var base = document.querySelectorAll("[id='base']");
-
-  for (var i = 0; i < prices.length; i++) {
-    if (basePrices.length === 0) {
-      basePrices.push(parseInt(prices[i].innerHTML));
-    }
-
-    if (condition) {
-      prices[i].innerHTML = currencyFormatter(basePrices[i] * 11);
-      base[i].innerHTML = "Yearly";
-    } else {
-      prices[i].innerHTML = basePrices[i];
-      base[i].innerHTML = "Monthly";
-    }
-  }
-}
-
-function currencyFormatter(amount) {
-  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}

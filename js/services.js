@@ -26,6 +26,25 @@ function injectSection(url, elementId, callback = () => {}) {
     .catch((error) => console.error(`Error loading ${elementId}:`, error));
 }
 
+// Service page sections
+function injectServiceSections() {
+  injectSection("./pages/services.html", "services-container");
+  injectSection("./containers/services/Hero.html", "hero-services");
+  injectSection(
+    "./containers/shared/ServiceSection.html",
+    "services-service-section"
+  );
+  injectSection(
+    "./containers/shared/PricingSection.html",
+    "services-pricing-section"
+  );
+  injectSection(
+    "./containers/shared/ContactSection.html",
+    "services-contact-section"
+  );
+  injectSection("./components/Faq.html", "services-faq-section");
+}
+
 // Function to inject shared sections (sections used on both pages)
 function injectSharedSections(callback = () => {}) {
   injectSection("./components/Navbar.html", "navbar-container", function () {
@@ -36,38 +55,6 @@ function injectSharedSections(callback = () => {}) {
   injectSection("./containers/shared/ServiceSection.html", "service-section");
   injectSection("./containers/shared/ContactSection.html", "contact-section");
 }
-
-// Home page sections
-function injectHomeSections() {
-  injectSection("./pages/home.html", "home-container");
-  injectSection("./containers/home/Hero.html", "hero");
-  injectSection("./containers/shared/StepSection.html", "home-step-section");
-  injectSection(
-    "./containers/shared/ServiceSection.html",
-    "home-service-section"
-  );
-  injectSection(
-    "./containers/shared/OptimizeSection.html",
-    "home-optimize-section"
-  );
-  injectSection(
-    "./containers/shared/PricingSection.html",
-    "home-pricing-section"
-  );
-  injectSection(
-    "./containers/shared/ContactSection.html",
-    "home-contact-section"
-  );
-  injectSection("./components/Faq.html", "home-faq-section");
-}
-
-function initializePage() {
-  injectSharedSections();
-  injectHomeSections();
-}
-
-// Run the initialization on page load
-window.addEventListener("load", initializePage);
 
 var basePrices = [599, 799, 999];
 
@@ -94,3 +81,11 @@ function updatePrices() {
 function currencyFormatter(amount) {
   return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function initializePage() {
+  injectSharedSections();
+  injectServiceSections();
+}
+
+// Run the initialization on page load
+window.addEventListener("load", initializePage);
