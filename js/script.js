@@ -63,15 +63,15 @@ function configurePageNavigation() {
 // Function to inject shared sections (sections used on both pages)
 function injectSharedSections(callback = () => {}) {
   injectSection(
-    "./shared/components/Navbar.html",
+    "./components/Navbar.html",
     "navbar-container",
     function () {
       configurePageNavigation(); // Ensure that navbar is configured after it's injected
       callback(); // Continue loading other shared sections after navbar
     }
   );
-  injectSection("./shared/components/Faq.html", "faq-section");
-  injectSection("./shared/components/Footer.html", "footer-section");
+  injectSection("./components/Faq.html", "faq-section");
+  injectSection("./components/Footer.html", "footer-section");
   injectSection("./containers/shared/ServiceSection.html", "service-section");
   injectSection("./containers/shared/ContactSection.html", "contact-section");
 }
@@ -97,15 +97,15 @@ function injectHomeSections() {
     "./containers/shared/ContactSection.html",
     "home-contact-section"
   );
-  injectSection("./shared/components/Faq.html", "home-faq-section");
+  injectSection("./components/Faq.html", "home-faq-section");
 }
 
 // About page sections
 function injectAboutSections() {
   injectSection("./pages/about.html", "about-container");
   injectSection("./containers/about/Hero.html", "hero-about");
-  injectSection("./containers/about/WhySection.html", "why-section");
-  injectSection("./containers/about/FeatureSection.html", "feature-section");
+  injectSection("./containers/shared/WhySection.html", "why-section");
+  injectSection("./containers/shared/FeatureSection.html", "feature-section");
   injectSection(
     "./containers/shared/ServiceSection.html",
     "about-service-section"
@@ -114,7 +114,7 @@ function injectAboutSections() {
     "./containers/shared/ContactSection.html",
     "about-contact-section"
   );
-  injectSection("./shared/components/Faq.html", "about-faq-section");
+  injectSection("./components/Faq.html", "about-faq-section");
 }
 
 // Service page sections
@@ -133,7 +133,7 @@ function injectServiceSections() {
     "./containers/shared/ContactSection.html",
     "services-contact-section"
   );
-  injectSection("./shared/components/Faq.html", "services-faq-section");
+  injectSection("./components/Faq.html", "services-faq-section");
 }
 
 // Initialize the page by checking the URL or hash
@@ -166,3 +166,35 @@ window.addEventListener("load", initializePage);
 
 // Handle hash change events (for back/forward navigation)
 window.addEventListener("hashchange", initializePage);
+
+
+var basePrices = [599, 799, 999];
+
+function updatePrices(){
+  var condition = document.getElementById("flexSwitchCheckChecked").checked;
+  var prices = document.getElementsByClassName("price");
+  var base = document.querySelectorAll("[id='base']");
+
+  // for(var i = 0; i <prices.length; i++){
+  //   console.log(prices[i]);
+  // }
+
+
+  for (var i = 0; i < prices.length; i++){
+    if(basePrices.length === 0){
+      basePrices.push(parseInt(prices[i].innerHTML));
+    }
+
+    if(condition){
+      prices[i].innerHTML = currencyFormatter(basePrices[i] * 11);
+      base[i].innerHTML = "Yearly"
+    }else{
+      prices[i].innerHTML = basePrices[i];  
+      base[i].innerHTML= "Monthly"
+    }
+  }
+}
+
+function currencyFormatter(amount){
+  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
