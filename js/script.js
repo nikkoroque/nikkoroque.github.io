@@ -62,14 +62,10 @@ function configurePageNavigation() {
 
 // Function to inject shared sections (sections used on both pages)
 function injectSharedSections(callback = () => {}) {
-  injectSection(
-    "./components/Navbar.html",
-    "navbar-container",
-    function () {
-      configurePageNavigation(); // Ensure that navbar is configured after it's injected
-      callback(); // Continue loading other shared sections after navbar
-    }
-  );
+  injectSection("./components/Navbar.html", "navbar-container", function () {
+    configurePageNavigation(); // Ensure that navbar is configured after it's injected
+    callback(); // Continue loading other shared sections after navbar
+  });
   injectSection("./components/Faq.html", "faq-section");
   injectSection("./components/Footer.html", "footer-section");
   injectSection("./containers/shared/ServiceSection.html", "service-section");
@@ -167,10 +163,9 @@ window.addEventListener("load", initializePage);
 // Handle hash change events (for back/forward navigation)
 window.addEventListener("hashchange", initializePage);
 
-
 var basePrices = [599, 799, 999];
 
-function updatePrices(){
+function updatePrices() {
   var condition = document.getElementById("flexSwitchCheckChecked").checked;
   var prices = document.getElementsByClassName("price");
   var base = document.querySelectorAll("[id='base']");
@@ -179,22 +174,21 @@ function updatePrices(){
   //   console.log(prices[i]);
   // }
 
-
-  for (var i = 0; i < prices.length; i++){
-    if(basePrices.length === 0){
+  for (var i = 0; i < prices.length; i++) {
+    if (basePrices.length === 0) {
       basePrices.push(parseInt(prices[i].innerHTML));
     }
 
-    if(condition){
+    if (condition) {
       prices[i].innerHTML = currencyFormatter(basePrices[i] * 11);
-      base[i].innerHTML = "Yearly"
-    }else{
-      prices[i].innerHTML = basePrices[i];  
-      base[i].innerHTML= "Monthly"
+      base[i].innerHTML = "Yearly";
+    } else {
+      prices[i].innerHTML = basePrices[i];
+      base[i].innerHTML = "Monthly";
     }
   }
 }
 
-function currencyFormatter(amount){
+function currencyFormatter(amount) {
   return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
